@@ -1,0 +1,57 @@
+{% load static %}
+<!Doctype html>
+<html>
+    <head>
+        <title>Add Agent</title>
+        <link rel="stylesheet" href="{% static 'addagent.css'%}">
+    </head>
+    <body>
+        <div class="frm-box">
+            <h2>Add an Agent</h2>
+            <div>
+            <form>
+                <div class="input-bx">
+                <label>Name:</label>
+                <input type="text" id=""name required>
+                </div>
+                <div class="input-bx">
+                <label>Email:</label>
+                <input type="email" required>
+                </div>
+                <div class="input-bx">
+                <label>Location(Pincode):</label>
+                <input type="number" required>
+                </div>
+                <div class="input-bx">
+                <label>Phone Number:</label>
+                <input type="number" required>
+                </div>
+                <div class="input-bx">
+                    <label>Address:</label>
+                    <textarea cols="25" rows="3" required></textarea>
+                </div>
+                <div class="input-bx">
+                <label>Password:</label>
+                <input type="password" required>
+                </div>
+                
+                <div style="color: #343a40; padding: 0 35px 0 5px; height:50px;" >
+                    <label>Upload Photo:</label>
+                    <input type="file" id="img" accept="image/*" required>
+                </div>
+
+                <button type="submit" class="btn" onclick="">Register</button>
+            </form>
+            </div>
+        </div>
+    </body>
+</html> 
+
+
+
+
+
+
+
+
+ 

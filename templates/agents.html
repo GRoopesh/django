@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Agents list</title>
+        <link rel="stylesheet" href="{% static 'agents.css'%}">
+    </head>
+    <body>
+        <section class="agnts">
+            <div class="container">
+                <h2>List of Agents</h2>
+                <div class="agents">
+                    <div class="agent">
+                      <img src="{% static 'kushi2.jpg' %}" alt="Agent Image">
+                        <h3>ID:Homely420</h3>
+                        <p class="name">ShinChan</p>
+                        <p class="phno">9876543210</p>
+                        <p class="location">RKV</p>
+                    </div>
+                    <div class="agent">
+                        <img src="{% static 'MamithaBaiju-58-819x1024.jpg' %}" alt="Agent Image">
+                        <p class="name">ShinChan</p>
+                        <p class="phno">9876543210</p>
+                        <p class="location">RKV</p>
+                    </div>
+                    <div class="agent">
+                      <img src="{% static 'kushi2.jpg' %}" alt="Agent Image">
+                        <p class="name">ShinChan</p>
+                        <p class="phno">9876543210</p>
+                        <p class="location">RKV</p>
+                    </div>
+                    <div class="agent">
+                        <img src="{% static 'IMG_20230703_183218_642.jpg'%}" alt="Agent Image">
+                        <p class="name">ShinChan</p>
+                        <p class="phno">9876543210</p>
+                        <p class="location">RKV</p>
+                    </div>
+                    <div class="agent">
+                        <img src="{% static 'bharath.jpg'%}" alt="Agent Image">
+                        <p class="name">ShinChan</p>
+                        <p class="phno">9876543210</p>
+                        <p class="location">RKV</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+React
+
+import React from 'react';
+import './agents.css';
+
+const agentsData = [
+  {
+    id: 'Homely420',
+    name: 'ShinChan',
+    phone: '9876543210',
+    location: 'RKV',
+    image: 'kushi2.jpg'
+  },
+  {
+    id: '',
+    name: 'ShinChan',
+    phone: '9876543210',
+    location: 'RKV',
+    image: 'MamithaBaiju-58-819x1024.jpg'
+  },
+  {
+    id: '',
+    name: 'ShinChan',
+    phone: '9876543210',
+    location: 'RKV',
+    image: 'kushi2.jpg'
+  },
+  {
+    id: '',
+    name: 'ShinChan',
+    phone: '9876543210',
+    location: 'RKV',
+    image: 'IMG_20230703_183218_642.jpg'
+  },
+  {
+    id: '',
+    name: 'ShinChan',
+    phone: '9876543210',
+    location: 'RKV',
+    image: 'bharath.jpg'
+  }
+];
+
+const Agent = ({ agent }) => (
+  <div className="agent">
+    <img src={agent.image} alt="Agent Image" />
+    {agent.id && <h3>ID:{agent.id}</h3>}
+    <p className="name">{agent.name}</p>
+    <p className="phno">{agent.phone}</p>
+    <p className="location">{agent.location}</p>
+  </div>
+);
+
+const AgentsList = () => (
+  <section className="agnts">
+    <div className="container">
+      <h2>List of Agents</h2>
+      <div className="agents">
+        {agentsData.map((agent, index) => (
+          <Agent key={index} agent={agent} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export default AgentsList;
+

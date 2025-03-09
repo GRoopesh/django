@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css%}
+<link rel="stylesheet" href="{%static 'css/styles.css' %}">
+<link rel="stylesheet" href="{%static 'styles.css' %}">
+<title>Real Estate Home Page</title>
+
+{%endblock%}
+{% block content%}
+<div class="wrapper" >
+    <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+    <div class="form-box login">
+        <h2>Login</h2>
+        <form action="{% url 'log'%}" method="post">
+            {%csrf_token%}
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="text" name="email" required  placeholder=" " />
+                <label > <b>Username </b></label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" name="pass" required>
+                <label ><b> Password</b></label>
+            </div>
+            <div class="remember-forgot">
+                <label style="color:#fff"><input type="checkbox">Remember Me</label>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="login-register"><p>Don't have an account?<a href="#" class="register-link">Register</a></p></div>
+        </form>
+    </div>
+    <div class="form-box register">
+        <h2>Register</h2>
+        <form action="{% url 'register'%}" method="post">
+            {%csrf_token%}
+            <div class="input-box">
+                <span class="icon"><ion-icon name="person-circle"></ion-icon></span>
+                <input type="text" name="username"  required>
+                <label > <b>Username </b></label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" name="email"  required>
+                <label > <b>Email </b></label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" name="password"  required>
+                <label ><b> Password</b></label>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="login-register"><p>Already have an account?<a href="#" class="login-link">Login</a></p></div>
+        </form>
+    </div>
+</div>
+
+ <div class="video-background">
+    <video autoplay muted loop width="100%" height="100%">
+        <source src="{% static 'real.mp4' %}" type="video/mp4">
+    </video>
+</div>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>Find Your Dream Home</h2>
+        <p>Explore the best properties available in your area.</p>
+        <div class="search-bar">
+            <form action='{%url "search"%}' method="POST">
+                {% csrf_token %}
+            <input type="text" placeholder="PIN code" name='pin'>
+            <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Listings -->
+<section class="featured-listings">
+    <div class="container">
+        <h2 id="listingss">Featured Listings</h2>
+        <div class="listings">
+            {% for product in products %}
+            {% if product.is_sale %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src='{{ product.image.url }}' alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{product.description}}</h5>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    <strike>${{product.price}}</strike>
+                                    &nbsp;
+                                    ${{product.sale_price}}
+                                    <div>
+                                    <button 
+    style="
+        background-color: #28a745; 
+        color: white; 
+        border: none; 
+        padding: 10px 20px; 
+        border-radius: 5px; 
+        font-size: 16px; 
+        cursor: pointer; 
+        transition: background-color 0.3s ease;
+        margin:10%;
+    " 
+    onclick="window.location.href='{% url 'Addcart'  product.id%}'"
+    onmouseover="this.style.backgroundColor='#218838'" 
+    onmouseout="this.style.backgroundColor='#28a745'">
+    Add to Cart
+</button>
+</div>
+
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id%}">View options</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src='{{ product.image.url }}' alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{product.description}}</h5>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                     ${{product.price}}
+                                     <div>
+                                        <button 
+        style="
+            background-color: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease;
+            margin:10%;
+        " 
+        onclick="window.location.href='{% url 'Addcart'  product.id%}'"
+        onmouseover="this.style.backgroundColor='#218838'" 
+        onmouseout="this.style.backgroundColor='#28a745'">
+        Add to Cart
+    </button>
+    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id%}">View options</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+<!-- How It Works -->
+<div style="display:block;">
+<section class="how-it-works" >
+    <div class="container">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>Search</h3>
+                <p>Find properties that match your criteria.</p>
+            </div>
+            <div class="step">
+                <h3>Schedule</h3>
+                <p>Book viewings at your convenience.</p>
+            </div>
+            <div class="step">
+                <h3>Move In</h3>
+                <p>Finalize the deal and move into your new home.</p>
+            </div>
+        </div>
+    </div>
+    
+</section>
+</div>
+   <!-- Testimonials -->
+ 
+
+ 
+{%endblock%}

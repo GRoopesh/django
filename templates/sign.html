@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Sign up page</title>
+    </head>
+    <body>
+        <form>
+           
+        <div class="form-box register"></div>
+            <h2>Register</h2>
+            <form >
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-circle"></ion-icon></ion-icon></span>
+                    <input type="text" name="Username" id="user" required>
+                    <label > <b>Username </b></label>
+                    <input type="text" name="Fullname" id="name" required>
+                    <label > <b>Fullname </b></label>
+                    
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" name="email" id="mail" required>
+                    <label > <b>Email </b></label>
+                    <input type="number" name="Phnumber" id="phno" required>
+                    <label > <b>Phone Number </b></label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password" id="pass" required>
+                    <label ><b> Password</b></label>
+                    <input type="password" name="Cpassword" id="pass" required>
+                    <label ><b>Confirm Password</b></label>
+                </div>
+                <div class="remember-forgot">
+                    <label style="color:#fff"><input type="checkbox">agree to the terms & conditions</label>
+                    <a href="#" style="color:#343a40">Forgot Password</a>
+                </div>
+                <button type="submit" class="btn" onclick="register()" onclick="window.open('web.html', '_self');">Register</button>
+                <div class="login-register"><p>Already have an account?<a href="#" class="login-link">Login</a></p></div>
+            </form>
+        </div>
+        </form>
+    </body>
+</html>

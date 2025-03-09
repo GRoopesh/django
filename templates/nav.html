@@ -1,0 +1,65 @@
+ 
+        
+        <nav style="padding-top:18px;padding-right:15px">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#listingss">Listings</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><button class="btnLogin-popup">Login</button></li>
+                <li><span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span></li>
+            </ul>
+        </nav>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REact
+
+import React from 'react';
+import './nav.css';
+import { IonIcon } from '@ionic/react';
+import { personCircleOutline } from 'ionicons/icons';
+
+const Navbar = () => {
+    return (
+        <header>
+            <div className="container" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div className="logo">
+                    <h1>HOMELY</h1>
+                </div>
+                <div style={{ paddingTop: '18px', paddingRight: '15px' }}>
+                    <nav>
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="#listingss">Listings</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><button className="btnLogin-popup">Login</button></li>
+                            <li><span className="icon"><IonIcon icon={personCircleOutline} /></span></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    );
+}
+
+export default Navbar;

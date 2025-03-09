@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background: #343a40; /* rgba(0, 0, 0, 0.5) Semi-transparent background for header */
+    color: #fff;
+    padding: 20px 0;
+    z-index: 10; /* Ensure it stays on top of other content */
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo h1 {
+    padding-left: 25px;
+    font-size: 36px;
+    padding-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+nav ul .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
+}
+
+nav ul .btnLogin-popup:hover {
+    background: #fff;
+    color: #343a40;
+}
+
+
+.heading h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.hii {
+    color: #030202;
+    background-image: url('disha.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-attachment:scroll; 
+    background-position: center;
+    margin-top: 80px; /* Adjust to prevent content from hiding behind the fixed header */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for content readability */
+    border-radius: 8px;
+    width: 90%;
+    margin: 80px auto; /* Centering the content */
+}
+
+.heading h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li p {
+    display: inline;
+}
+
+.icon {
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .hii {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .heading h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+}
